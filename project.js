@@ -105,6 +105,21 @@ const transpose = (reels) => {
     return rows
 }
 
+
+const printRows = (rows) => {
+    for (const row of rows) {
+        let rowStrings = "A";
+        for (const [i, symbol] of rows.entries()) {
+            rowStrings += symbol;
+            if (i != row.length - 1) {
+                rowStrings += " | "
+            }
+        } 
+        console.log(rowStrings)
+        
+    }
+}
+
 const reels = spin();
 
 let balance = deposit();
@@ -113,3 +128,4 @@ const bet = getBet(balance, numberOfLines);
 
 const rows = transpose(reels);
 console.log(rows);
+printRows(rows);
